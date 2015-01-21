@@ -362,7 +362,7 @@ def writePrestoFilesForServiceNanny
   println "Making /etc/init.d/presto-launcher"
   File.open('/tmp/presto-launcher', 'w') do |f|
     f.write(<<EOF
-/home/hadoop/presto-server/bin/launcher $@
+su - hadoop -c "/home/hadoop/presto-server/bin/launcher $@"
 EOF
     )
   end
